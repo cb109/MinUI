@@ -11,7 +11,8 @@ endif
 endif
 
 ifeq (,$(PLATFORMS))
-PLATFORMS = miyoomini trimuismart rg35xx rg35xxplus tg5040 tg3040 rgb30 m17 gkdpixel my282 magicmini
+# PLATFORMS = miyoomini trimuismart rg35xx rg35xxplus tg5040 tg3040 rgb30 m17 gkdpixel my282 magicmini
+PLATFORMS = trimuismart
 endif
 
 ###########################################################
@@ -113,17 +114,17 @@ done:
 special:
 	# setup miyoomini/trimui family .tmp_update in BOOT
 	mv ./build/BOOT/common ./build/BOOT/.tmp_update
-	mv ./build/BOOT/miyoo ./build/BASE/
+#	mv ./build/BOOT/miyoo ./build/BASE/
 	mv ./build/BOOT/trimui ./build/BASE/
-	cp -R ./build/BOOT/.tmp_update ./build/BASE/miyoo/app/
+#	cp -R ./build/BOOT/.tmp_update ./build/BASE/miyoo/app/
 	cp -R ./build/BOOT/.tmp_update ./build/BASE/trimui/app/
-	cp -R ./build/BASE/miyoo ./build/BASE/miyoo354
+#	cp -R ./build/BASE/miyoo ./build/BASE/miyoo354
 
 tidy:
 	# ----------------------------------------------------
 	# copy update from rg35xxplus to old rg40xxcube bin so old cards update properly
-	mkdir -p ./build/SYSTEM/rg40xxcube/bin/
-	cp ./build/SYSTEM/rg35xxplus/bin/install.sh ./build/SYSTEM/rg40xxcube/bin/
+#	mkdir -p ./build/SYSTEM/rg40xxcube/bin/
+#	cp ./build/SYSTEM/rg35xxplus/bin/install.sh ./build/SYSTEM/rg40xxcube/bin/
 
 	# remove various detritus
 	rm -rf ./build/EXTRAS/Tools/tg5040/Developer.pak
