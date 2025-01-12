@@ -10,6 +10,8 @@
 
 #define MAX_PATH 512
 
+#define IMGS_FOLDER "Imgs"
+
 #define ROMS_PATH SDCARD_PATH "/Roms"
 #define ROOT_SYSTEM_PATH SDCARD_PATH "/.system/"
 #define SYSTEM_PATH SDCARD_PATH "/.system/" PLATFORM
