@@ -1511,7 +1511,7 @@ int main (int argc, char *argv[]) {
 				char* tmp = strrchr(res_root, '/');
 				tmp[0] = '\0';
 				
-				sprintf(res_path, "%s/%s/%s.png", res_root, IMGS_FOLDER, res_name);
+				sprintf(res_path, "%s/Imgs/%s.png", res_root, res_name);
 				LOG_info("res_path: %s\n", res_path);
 				if (exists(res_path)) {
 					had_thumb = 1;

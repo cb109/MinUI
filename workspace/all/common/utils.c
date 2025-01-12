@@ -33,7 +33,7 @@ int hide(char* file_name) {
 		file_name[0]=='.' 
 		|| suffixMatch(".disabled", file_name) 
 		|| exactMatch("map.txt", file_name) 
-		|| exactMatch(IMGS_FOLDER, file_name)
+		|| exactMatch("Imgs", file_name)
 	);
 }
 
