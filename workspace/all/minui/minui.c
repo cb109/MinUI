@@ -1598,16 +1598,7 @@ int main (int argc, char *argv[]) {
 						char* entry_name = entry->name;
 						char* entry_unique = entry->unique;
 
-						int available_width = screen->w - SCALE1(PADDING * 2);
-						if (had_thumb && j!=selected_row) {
-							int diff = screen->w - ox;
-							if (diff <= (screen->w / 3)) {
-								// Adapt text if image is not very wide, overlap otherwise.
-								// This allows e.g. to use full background images without killing text.
-								available_width = ox;
-							}
-						}
-
+						int available_width = (had_thumb && j!=selected_row ? ox : screen->w) - SCALE1(PADDING * 2);
 						if (i==top->start && !(had_thumb && j!=selected_row)) available_width -= ow; // 
 					
 						SDL_Color text_color = COLOR_WHITE;
