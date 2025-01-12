@@ -1510,7 +1510,7 @@ int main (int argc, char *argv[]) {
 				if (exists(res_path)) {
 					had_thumb = 1;
 					SDL_Surface* thumb = IMG_Load(res_path);
-					ox = MAX(FIXED_WIDTH - FIXED_HEIGHT, (FIXED_WIDTH - thumb->w));
+					ox = (FIXED_WIDTH - thumb->w) < 0 ? 0 : (FIXED_WIDTH - thumb->w);
 					oy = (FIXED_HEIGHT - thumb->h) / 2;
 					SDL_BlitSurface(thumb, NULL, screen, &(SDL_Rect){ox,oy});
 					SDL_FreeSurface(thumb);
