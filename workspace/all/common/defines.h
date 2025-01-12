@@ -19,11 +19,13 @@
 #define SHARED_USERDATA_PATH SDCARD_PATH "/.userdata/shared"
 #define PAKS_PATH SYSTEM_PATH "/paks"
 #define RECENT_PATH SHARED_USERDATA_PATH "/.minui/recent.txt"
+#define FAVORITE_PATH SHARED_USERDATA_PATH "/.minui/favorite.txt"
 #define SIMPLE_MODE_PATH SHARED_USERDATA_PATH "/enable-simple-mode"
 #define AUTO_RESUME_PATH SHARED_USERDATA_PATH "/.minui/auto_resume.txt"
 #define AUTO_RESUME_SLOT 9
 
 #define FAUX_RECENT_PATH SDCARD_PATH "/Recently Played"
+#define FAUX_FAVORITE_PATH SDCARD_PATH "/Favorites"
 #define COLLECTIONS_PATH SDCARD_PATH "/Collections"
 
 #define LAST_PATH "/tmp/last.txt" // transient
@@ -32,6 +34,7 @@
 #define NOUI_PATH "/tmp/noui"
 
 #define TRIAD_WHITE 		0xff,0xff,0xff
+#define TRIAD_GOLD	 		0xd2,0xb4,0x6c
 #define TRIAD_BLACK 		0x00,0x00,0x00
 #define TRIAD_LIGHT_GRAY 	0x7f,0x7f,0x7f
 #define TRIAD_GRAY 			0x99,0x99,0x99
@@ -41,6 +44,7 @@
 #define TRIAD_DARK_TEXT 	0x66,0x66,0x66
 
 #define COLOR_WHITE			(SDL_Color){TRIAD_WHITE}
+#define COLOR_GOLD			(SDL_Color){TRIAD_GOLD}
 #define COLOR_GRAY			(SDL_Color){TRIAD_GRAY}
 #define COLOR_BLACK			(SDL_Color){TRIAD_BLACK}
 #define COLOR_LIGHT_TEXT	(SDL_Color){TRIAD_LIGHT_TEXT}
