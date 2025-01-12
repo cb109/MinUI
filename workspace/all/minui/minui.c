@@ -1516,7 +1516,7 @@ int main (int argc, char *argv[]) {
 				if (exists(res_path)) {
 					had_thumb = 1;
 					SDL_Surface* thumb = IMG_Load(res_path);
-					ox = (FIXED_WIDTH - thumb->w) < 0 ? 0 : (FIXED_WIDTH - thumb->w);
+					ox = MAX(FIXED_WIDTH - FIXED_HEIGHT, (FIXED_WIDTH - thumb->w));
 					oy = (FIXED_HEIGHT - thumb->h) / 2;
 					SDL_BlitSurface(thumb, NULL, screen, &(SDL_Rect){ox,oy});
 					SDL_FreeSurface(thumb);
@@ -1598,7 +1598,20 @@ int main (int argc, char *argv[]) {
 						char* entry_name = entry->name;
 						char* entry_unique = entry->unique;
 
-						int available_width = (had_thumb && j!=selected_row ? ox : screen->w) - SCALE1(PADDING * 2);
+						int available_width = screen->w;
+						// Adapt text width only if not <50% of screen width.
+						// It would not be readable otherwise. This way we 
+						// also support full-width background images, e.g.
+						// for system folders.
+						if (
+							had_thumb 
+							&& j!=selected_row 
+							&& ox > FIXED_WIDTH / 2
+						) {
+							available_width = ox;
+						}
+						available_width = available_width - SCALE1(PADDING * 2);
+
 						if (i==top->start && !(had_thumb && j!=selected_row)) available_width -= ow; // 
 					
 						SDL_Color text_color = COLOR_WHITE;
