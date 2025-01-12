@@ -701,7 +701,7 @@ static int hasFavorites(void) {
 		fclose(file);
 	}
 
-	saveFavorites();
+	//saveFavorites();
 	
 	//return has>0;
 	return 1; // Always show directory, even if empty.
