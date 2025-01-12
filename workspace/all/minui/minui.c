@@ -1599,16 +1599,16 @@ int main (int argc, char *argv[]) {
 						char* entry_unique = entry->unique;
 
 						int available_width = screen->w;
-						// Adapt text width only if not <50% of screen width.
-						// It would not be readable otherwise. This way we 
+						// Adapt text width only if still > 50% of screen width,
+						// it would likely be unreadable otherwise. This way we 
 						// also support full-width background images, e.g.
 						// for system folders.
 						if (
-							had_thumb 
-							&& j!=selected_row 
-							&& ox > FIXED_WIDTH / 2
+							had_thumb && j!=selected_row
 						) {
-							available_width = ox;
+							if (ox > screen->w / 2) {
+								available_width = ox;
+							}
 						}
 						available_width = available_width - SCALE1(PADDING * 2);
 
